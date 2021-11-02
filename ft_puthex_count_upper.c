@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "ft_printf.h"
 int	ft_puthex_count_upper(unsigned int n, int fd)
 {
 	char				c;
@@ -26,8 +26,3 @@ int	ft_puthex_count_upper(unsigned int n, int fd)
 	}
 	return (total);
 }
-
-// int main()
-// {
-// 	printf("%d", ft_puthex(45, 1));
-// }

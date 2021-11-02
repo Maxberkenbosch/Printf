@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "ft_printf.h"
 int	ft_putnbr_count_fd(int n, int fd)
 {
 	char		c;
@@ -9,7 +9,7 @@ int	ft_putnbr_count_fd(int n, int fd)
 	nbr = n;
 	if (nbr < 0)
 	{
-		ft_putchar_fd('-', fd);
+		total += write(1, "-", 1);
 		nbr *= -1;
 	}
 	if (nbr >= 10)

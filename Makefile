@@ -1,13 +1,12 @@
-FILES =	libftprintf.c\
+FILES =	ft_printf.c\
 		ft_putchar_count_fd.c\
 		ft_puthex_count_lower.c\
 		ft_puthex_count_upper.c\
 		ft_putnbr_count_fd.c\
-		ft_putstr_fd.c\
+		ft_putstr_count_fd.c\
 		ft_putunbr.c\
 		ft_strlen.c\
-		ft_putnbr_fd.c\
-		ft_putchar_fd.c
+		ft_putunbr.c
 
 NAME = libftprintf.a
 
@@ -18,7 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 OBJS = $(FILES:.c=.o)
 
 
-%.o : %.c libft.h
+%.o : %.c ft_printf.h
 		@$(CC) $(FLAGS) -c $<
 		@echo "Compiling $<"
 

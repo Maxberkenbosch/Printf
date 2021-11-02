@@ -1,4 +1,4 @@
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_checks(const char *format, int i, va_list args);
 
@@ -38,7 +38,8 @@ int	ft_checks(const char *format, int i, va_list args)
 					|| format[i + 1] == 'i'))
 			|| (format[i] == '%' && (format[i + 1] == 'x'
 					|| format[i + 1] == 'X'))
-			|| (format[i] == '%' && format[i + 1] == 'p'))
+			|| (format[i] == '%' && format[i + 1] == 'p')
+			|| (format[i] == '%' && format[i + 1] == 'u'))
 		{
 			total += ft_part_1(format, i, args);
 			total += ft_part_2(format, i, args);
@@ -95,6 +96,11 @@ int	ft_part_2(const char *format, int i, va_list args)
 		k = va_arg(args, unsigned long int);
 		total += ft_puthex_count_lower(k, 1);
 	}
+	if (format[i] == '%' && format[i + 1] == 'u')
+	{
+		j = va_arg(args, unsigned int);
+		total += ft_putunbr(j, 1);
+	}
 	return (total);
 }
 
@@ -112,16 +118,4 @@ int	ft_x_X(const char *format, int i, unsigned int j)
 		total += ft_puthex_count_upper(j, 1);
 	}
 	return (total);
-}
-
-int main()
-{
-	void 	*p;
-
-
-	// ft_printf("Hallooo, %s hebben %d a %i levens%c\t.De chipcode van dit geitje is %x of %X oof %p?\n\n", "geitjes", 7, 8, '!', 45, 45, &p);
-	// printf("Hallooo, %s hebben %d a %i levens%c\t.De chipcode van dit geitje is %x of %X oof %p?\n\n", "geitjes", 7, 8, '!', 45, 45, &p);
-	ft_printf("\n%d\n", ft_printf("\nHallooo, %s hebben %d a %i levens%c\t.De chipcode van dit geitje is %x of %X of was het %p?\n\n", "geitjes", 7, 8, '!', 45, 45, &p));
-	printf("\n%d\n", printf("\nHallooo, %s hebben %d a %i levens%c\t.De chipcode van dit geitje is %x of %X of was het %p?\n\n", "geitjes", 7, 8, '!', 45, 45, &p));
-
 }

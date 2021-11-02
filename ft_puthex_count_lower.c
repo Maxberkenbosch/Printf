@@ -1,4 +1,4 @@
-#include "libft.h"
+#include "ft_printf.h"
 int	ft_puthex_count_lower(unsigned long int n, int fd)
 {
 	char				c;
@@ -21,13 +21,8 @@ int	ft_puthex_count_lower(unsigned long int n, int fd)
 		if (nbr % 16 < 10)
 			c = (nbr % 16) + '0';
 		else
-			c = (nbr % 16) + 55;
+			c = (nbr % 16) + 87;
 		total += write(fd, &c, 1);
 	}
 	return (total);
 }
-
-// int main()
-// {
-// 	printf("%x", ft_puthex_count_lower(45, 1));
-// }
